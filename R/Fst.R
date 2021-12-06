@@ -24,19 +24,20 @@
 #' gene flow from DNA sequence data. Genetics 132, 583-589.
 #'
 #'@examples
-#
-#'val=FST(pop1,pop2)
+#'data(example_SNP.rda)
+#'separate.M=data.prep(simsnp$snp,sample_labels)
+#'val=FST(separate.M$pop1,separate.M$pop2)
 #'#The average Fst value between population 1 and population 2 is
 #'print(val)
-#'.
 #'
-#'val=FST(pop1,pop2,method='average')
-#'list=FST(pop1,pop2,method='list')
-#'The average Fst value between population 1 and population 2 is
+#'
+#'val=FST(separate.M$pop1,separate.M$pop2,method='average')
+#'list=FST(separate.M$pop1,separate.M$pop2,method='list')
+#'#The average Fst value between population 1 and population 2 is
 #'print(val)
-#'.Fst value for each allele is
+#'#.Fst value for each allele is
 #'print(list)
-#'.
+#'
 #'
 #'@export
 #'

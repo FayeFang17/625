@@ -11,7 +11,8 @@
 #'
 #'@examples
 #'
-#'data.prep(M,label)
+#'data(example_SNP.rda)
+#'data.prep(simsnp$snp,sample_labels)
 #'
 #'@export
 #'

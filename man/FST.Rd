@@ -29,18 +29,20 @@ single-nucleotide polymorphisms(SNP). Calculation implemented by Hudson method
 in Hudson(1992).
 }
 \examples{
-val=FST(pop1,pop2)
+data(example_SNP.rda)
+separate.M=data.prep(simsnp$snp,sample_labels)
+val=FST(separate.M$pop1,separate.M$pop2)
 #The average Fst value between population 1 and population 2 is
 print(val)
-.
 
-val=FST(pop1,pop2,method='average')
-list=FST(pop1,pop2,method='list')
-The average Fst value between population 1 and population 2 is
+
+val=FST(separate.M$pop1,separate.M$pop2,method='average')
+list=FST(separate.M$pop1,separate.M$pop2,method='list')
+#The average Fst value between population 1 and population 2 is
 print(val)
-.Fst value for each allele is
+#.Fst value for each allele is
 print(list)
-.
+
 
 }
 \references{
