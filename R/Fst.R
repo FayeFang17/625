@@ -26,7 +26,7 @@
 #'@examples
 #
 #'val=FST(pop1,pop2)
-#'The average Fst value between population 1 and population 2 is
+#'print(The average Fst value between population 1 and population 2 is)
 #'print(val)
 #'.
 #'
