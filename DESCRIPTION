@@ -4,7 +4,7 @@ Title: Fst Calc
 Version: 0.1.0
 Author: Faye Fang
 Maintainer: The package maintainer <fangn@umich.edu>
-Description: fst
+Description: fst is the calulation of gene pop dif.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
