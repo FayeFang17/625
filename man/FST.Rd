@@ -30,7 +30,7 @@ in Hudson(1992).
 }
 \examples{
 val=FST(pop1,pop2)
-print(The average Fst value between population 1 and population 2 is)
+#The average Fst value between population 1 and population 2 is
 print(val)
 .
 
