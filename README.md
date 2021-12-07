@@ -39,9 +39,7 @@ library(bios625)
 
 ## Tutorial
 
-To view the tutorial(vignette) associated with this package, run the following code:
-
-browseVignettes(package = "625")
+To view the tutorial(vignette) associated with this package, check vignetttes/tutorial.rmd
 
 ### Example
 
