@@ -22,4 +22,5 @@ Imports:
     bench,
     KRIS,
     ggplot2,
-    tidyr
+    tidyr，
+    beeswarm
