@@ -2,7 +2,7 @@
 #'
 #'
 #'@description  A measure of population differentiation due to genetic structure.
-#'In this function, Fst is estimated from genetic polymorphism data, such as
+#'In this function, Fst is estimated from one of genetic polymorphism data,
 #'single-nucleotide polymorphisms(SNP). Calculation implemented by Hudson method
 #' in Hudson(1992).
 #'

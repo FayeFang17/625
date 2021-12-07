@@ -17,3 +17,80 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(bios625)
 ```
+
+### Simulate Data  
+
+SNP datasets simulated with this function sim_SNP(). (But they are rather unrealistic, so do not use them forany purpose other than package tutorial.)
+
+```{r}
+#Generate SNP dataset
+SNP_example=sim_SNP(method="SNP")
+
+#List of population grouping
+SNP_example=sim_SNP(method="label")
+
+#List of both
+SNP_example=sim_SNP()
+```
+
+Overview of the dataset:
+
+```{r}
+head(SNP_example)[['SNP_example']][1:6,1:10]
+head(SNP_example)[['label']][1:6]
+```
+
+Separate the dataset by population groups:
+```{r}
+SNP=data.prep(SNP_example[['SNP_example']],SNP_example[['label']])
+```
+
+Overview of the dataset:
+
+```{r}
+SNP$'1'[1:6,1:10]
+SNP$'2'[1:6,1:10]
+SNP$'2'[1:6,1:10]
+```
+
+Compute Fst list:
+```{r}
+#default: average
+FST(SNP$'1',SNP$'3')
+```
+
+```{r}
+#average
+FST(SNP$'2',SNP$'3',method='average')
+```
+
+```{r}
+#list of all Fst of the all alleles
+Fst=FST(SNP$'2',SNP$'3',method='list')
+head(Fst)
+```
+
+
+## Compare with pcakage KRIS
+
+The function fst.hudson() in package KRIS does the population group separation within an apply loop used to calculate Fst. FST() of the 625 package pre divided the population into groups, and uses colSum() rather than a loop to calculate each Fst value. so it is more efficient.
+
+```{r}
+#setup of fst.hudson package, population group index
+idx1 <- which(SNP_example[['label']]== '1')
+idx2 <- which(SNP_example[['label']]== '2')
+
+#check result
+testthat::expect_equal( FST(SNP$'1',SNP$'2'),
+              KRIS::fst.hudson(SNP_example[[1]],idx1,idx2))
+testthat::expect_equal( FST(SNP$'1',SNP$'2',method='list'),
+                          KRIS::fst.each.snp.hudson(SNP_example[[1]],idx1,idx2))
+#compare time
+run=bench::mark(FST(SNP$'1',SNP$'2'),
+              KRIS::fst.hudson(SNP_example[[1]],idx1,idx2))
+ggplot2::autoplot(run)
+
+
+```
+
+

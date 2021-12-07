@@ -22,11 +22,14 @@ The main function in the package is Fst.
 
 * `sim_SNP`: SNP datasets could be simulated with this function. (But they are rather unrealistic, so do not use them forany purpose other than package tutorial.)
 
+* `data.prep`: Preapre data for Fst calculation. Parse SNP dataset by population before calculating Fst to save time.
 
-
+* `FST` : A measure of population differentiation due to genetic structure. In this function, Fst is estimated from one of genetic polymorphism data, single-nucleotide polymorphisms(SNP). Calculation implemented by Hudson method in Hudson(1992).
 
 ## Installing
 
+#install.packages("devtools")
+library(devtools)
 devtools::install_github("https://github.com/FayeFang17/625/")
 library(bios625)
 
@@ -38,6 +41,13 @@ browseVignettes(package = "625")
 
 ### Example
 
+SNP_example=sim_SNP(method="SNP")
+
+label=sim_SNP(method="label")
+
+SNP=data.prep(SNP_example,label)
+
+FST(SNP$'1',SNP$'2')
 
 ## Authors
 
@@ -45,7 +55,15 @@ This package was created in 2021 by Faye Fang.
 fangn@umich.edu
 
 
-## Acknowledgments
+## Reference
 
-Inspiration, code snippets, etc.
+* Kridsadakorn Chaichoompu, Fentaw Abegaz, Sissades Tongsima, Philip James Shaw, Anavaj Sakuntabhai, Luisa
+  Pereira, and Kristel Van Steen (2018). KRIS: Keen and Reliable Interface Subroutines for Bioinformatic
+  Analysis. R package version 1.1.6. URL: https://CRAN.R-project.org/package=KRIS
+
+
+* Bhatia, G., Patterson, N., Sankararaman, S., and Price, A.L. (2013).
+
+* Hudson, R.R., Slatkin, M., and Maddison, W.P. (1992). Estimation of levels of
+gene flow from DNA sequence data. Genetics 132, 583-589.
 
