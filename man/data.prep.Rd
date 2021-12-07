@@ -7,7 +7,7 @@
 data.prep(M, label)
 }
 \arguments{
-\item{M}{A m \times n matrix containing SNP values 0,1,2 of each of the n
+\item{M}{A m x n matrix containing SNP values 0,1,2 of each of the n
 alleles of m sequences.}
 
 \item{label}{A integer vector of population group label for each individuals.
@@ -21,7 +21,11 @@ Preapre data for Fst calculation. Parse SNP dataset by population.
 }
 \examples{
 
-data(example_SNP.rda)
-data.prep(simsnp$snp,sample_labels)
+SNP_example=sim_SNP(method="SNP")
+
+label=sim_SNP(method="label")
+
+data.prep(SNP_example,label)
+
 
 }

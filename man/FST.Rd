@@ -2,18 +2,15 @@
 % Please edit documentation in R/Fst.R
 \name{FST}
 \alias{FST}
-\alias{the}
-\alias{Fixation}
-\alias{index}
-\title{FST}
+\title{the Fixation Index}
 \usage{
 FST(pop1, pop2, method = "NUll")
 }
 \arguments{
-\item{pop1}{A m \times n matrix containing SNP values 0,1,2 of each of the n
+\item{pop1}{A m x n matrix containing SNP values 0,1,2 of each of the n
 alleles of m sequences from population 1.}
 
-\item{pop2}{A m \times n matrix containing SNP values 0,1,2 of each of the n
+\item{pop2}{A m x n matrix containing SNP values 0,1,2 of each of the n
 alleles of m sequences from population 2.}
 
 \item{method}{a character string indicating format of output. This must be
@@ -29,20 +26,14 @@ single-nucleotide polymorphisms(SNP). Calculation implemented by Hudson method
 in Hudson(1992).
 }
 \examples{
-data(example_SNP.rda)
-separate.M=data.prep(simsnp$snp,sample_labels)
-val=FST(separate.M$pop1,separate.M$pop2)
-#The average Fst value between population 1 and population 2 is
-print(val)
 
+SNP_example=sim_SNP(method="SNP")
+label=sim_SNP(method="label")
+SNP=data.prep(SNP_example,label)
 
-val=FST(separate.M$pop1,separate.M$pop2,method='average')
-list=FST(separate.M$pop1,separate.M$pop2,method='list')
-#The average Fst value between population 1 and population 2 is
-print(val)
-#.Fst value for each allele is
-print(list)
-
+FST(SNP$'1',SNP$'3')
+FST(SNP$'2',SNP$'3',method='average')
+FST(SNP$'2',SNP$'3',method='list')
 
 }
 \references{

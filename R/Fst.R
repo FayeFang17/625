@@ -1,16 +1,15 @@
-#'FST
+#'the Fixation Index
 #'
-#'@aliases the Fixation index
 #'
 #'@description  A measure of population differentiation due to genetic structure.
 #'In this function, Fst is estimated from genetic polymorphism data, such as
 #'single-nucleotide polymorphisms(SNP). Calculation implemented by Hudson method
 #' in Hudson(1992).
 #'
-#'@param pop1 A m \times n matrix containing SNP values 0,1,2 of each of the n
+#'@param pop1 A m x n matrix containing SNP values 0,1,2 of each of the n
 #'alleles of m sequences from population 1.
 #'
-#'@param pop2 A m \times n matrix containing SNP values 0,1,2 of each of the n
+#'@param pop2 A m x n matrix containing SNP values 0,1,2 of each of the n
 #'alleles of m sequences from population 2.
 #'
 #'@param method a character string indicating format of output. This must be
@@ -24,20 +23,14 @@
 #' gene flow from DNA sequence data. Genetics 132, 583-589.
 #'
 #'@examples
-#'data(example_SNP.rda)
-#'separate.M=data.prep(simsnp$snp,sample_labels)
-#'val=FST(separate.M$pop1,separate.M$pop2)
-#'#The average Fst value between population 1 and population 2 is
-#'print(val)
 #'
+#'SNP_example=sim_SNP(method="SNP")
+#'label=sim_SNP(method="label")
+#'SNP=data.prep(SNP_example,label)
 #'
-#'val=FST(separate.M$pop1,separate.M$pop2,method='average')
-#'list=FST(separate.M$pop1,separate.M$pop2,method='list')
-#'#The average Fst value between population 1 and population 2 is
-#'print(val)
-#'#.Fst value for each allele is
-#'print(list)
-#'
+#'FST(SNP$'1',SNP$'3')
+#'FST(SNP$'2',SNP$'3',method='average')
+#'FST(SNP$'2',SNP$'3',method='list')
 #'
 #'@export
 #'

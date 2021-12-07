@@ -2,3 +2,5 @@
 
 export(FST)
 export(data.prep)
+export(sim_SNP)
+import(stats)
